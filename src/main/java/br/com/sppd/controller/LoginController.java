@@ -8,7 +8,7 @@ import br.com.sppd.retorno.Retorno;
 
 /**
  * 
- * Classe respos·vel por ser o controlador entre o resource e a camada DAO de Login
+ * Classe respos√°vel por ser o controlador entre o resource e a camada DAO de Login
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 19 de fev de 2017
  */

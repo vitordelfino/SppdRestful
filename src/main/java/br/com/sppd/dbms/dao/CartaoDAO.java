@@ -15,7 +15,7 @@ import br.com.sppd.factory.ConnectionFactory;
 import br.com.sppd.retorno.Retorno;
 
 /**
- * Classe respos·vel por realizar interaÁ„o com BD sonbre o Cartao
+ * Classe respos√°vel por realizar intera√ß√£o com BD sonbre o Cartao
  * 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 18 de fev de 2017
@@ -24,7 +24,7 @@ public class CartaoDAO {
 
 	/**
 	 * 
-	 * MÈtodo respos·vel por ativar o cartao
+	 * M√©todo respos√°vel por ativar o cartao
 	 * 
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 18 de fev de 2017
@@ -37,11 +37,11 @@ public class CartaoDAO {
 		System.out.println("Resultado da busca: " + aux);
 
 		if (aux == 1) {
-			return new Retorno(false, "Cart„o " + cartao.getCodCartao() + " ja ativo.");
+			return new Retorno(false, "Cart√£o " + cartao.getCodCartao() + " ja ativo.");
 		} else if (aux == 2) {
-			return new Retorno(false, "Cart„o " + cartao.getCodCartao() + " n„o encontrado.");
+			return new Retorno(false, "Cart√£o " + cartao.getCodCartao() + " n√£o encontrado.");
 		} else if (aux == 3) {
-			return new Retorno(false, "No momento nn„oo foi possÌvel ativar o cart„o.");
+			return new Retorno(false, "No momento nn√£oo foi poss√≠vel ativar o cart√£o.");
 		} else {
 			Connection c = null;
 			PreparedStatement pst = null;
@@ -57,7 +57,7 @@ public class CartaoDAO {
 				return new Retorno(false, "Error: " + e.getMessage());
 			} finally {
 				try {
-					System.out.println("** Finalizando Conex„o **");
+					System.out.println("** Finalizando Conex√£o **");
 					pst.close();
 					c.close();
 				} catch (SQLException e) {
@@ -71,7 +71,7 @@ public class CartaoDAO {
 	
 	/**
 	 * 
-	 * MÈtodo respons·vel por desativar o cartao
+	 * M√©todo respons√°vel por desativar o cartao
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 21 de mar de 2017
 	 * @param desativarCartao
@@ -84,11 +84,11 @@ public class CartaoDAO {
 		System.out.println("Resultado da busca: " + aux);
 
 		if (aux == 0) {
-			return new Retorno(false, "Cart„o " + cartao.getCodCartao() + " ja desativado.");
+			return new Retorno(false, "Cart√£o " + cartao.getCodCartao() + " ja desativado.");
 		} else if (aux == 2) {
-			return new Retorno(false, "Cart„o " + cartao.getCodCartao() + " n„o encontrado.");
+			return new Retorno(false, "Cart√£o " + cartao.getCodCartao() + " n√£o encontrado.");
 		} else if (aux == 3) {
-			return new Retorno(false, "No momento nn„oo foi possÌvel desativar o cart„o.");
+			return new Retorno(false, "No momento nn√£oo foi poss√≠vel desativar o cart√£o.");
 		} else {
 			Connection c = null;
 			PreparedStatement pst = null;
@@ -104,7 +104,7 @@ public class CartaoDAO {
 				return new Retorno(false, "Error: " + e.getMessage());
 			} finally {
 				try {
-					System.out.println("** Finalizando Conex„o **");
+					System.out.println("** Finalizando Conex√£o **");
 					pst.close();
 					c.close();
 				} catch (SQLException e) {
@@ -119,7 +119,7 @@ public class CartaoDAO {
 
 	/**
 	 * 
-	 * MÈtodo respos·vel por efetuar recarga do cartao
+	 * M√©todo respos√°vel por efetuar recarga do cartao
 	 * 
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 18 de fev de 2017
@@ -131,7 +131,7 @@ public class CartaoDAO {
 		System.out.println("Resultado da busca: " + aux);
 
 		if (aux == 0) {
-			return new Retorno(false, "Cart„o " + cartao.getCodCartao() + " inativo.");
+			return new Retorno(false, "Cart√£o " + cartao.getCodCartao() + " inativo.");
 		
 		} else {
 		
@@ -153,7 +153,7 @@ public class CartaoDAO {
 				return new Retorno(false, "Error: " + e.getMessage());
 			} finally {
 				try {
-					System.out.println("** Finalizando Conexıes **");
+					System.out.println("** Finalizando Conex√µes **");
 					pst.close();
 					c.close();
 				} catch (SQLException e) {
@@ -186,7 +186,7 @@ public class CartaoDAO {
 			return retorno;
 		} finally {
 			try {
-				System.out.println("** Finalizando ConeÁ„o **");
+				System.out.println("** Finalizando Cone√ß√£o **");
 				rs.close();
 				pst.close();
 				c.close();

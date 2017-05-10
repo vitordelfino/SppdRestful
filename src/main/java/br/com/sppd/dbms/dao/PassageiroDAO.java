@@ -13,7 +13,7 @@ import br.com.sppd.retorno.Retorno;
 
 /**
  * 
- * Classe respons·vel por realizar mÈtodos de consulta ao BD relacionado a Passageiros
+ * Classe respons√°vel por realizar m√©todos de consulta ao BD relacionado a Passageiros
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 4 de dez de 2016
  */
@@ -21,7 +21,7 @@ public class PassageiroDAO {
 	
 	/**
 	 * 
-	 * MÈtodo respons·vel por realizar o cadastro de um novo passageiro
+	 * M√©todo respons√°vel por realizar o cadastro de um novo passageiro
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 4 de dez de 2016
 	 * @param passageiro
@@ -44,7 +44,7 @@ public class PassageiroDAO {
 			rs = pst.executeQuery();
 			rs.next();
 			if(rs.getInt(1) > 0){
-				retorno.add(new Retorno(false, "CPF: "+passageiro.getCpf()+" j· cadastrado."));
+				retorno.add(new Retorno(false, "CPF: "+passageiro.getCpf()+" j√° cadastrado."));
 				return retorno;
 			}else{
 				pst = c.prepareStatement(query2);

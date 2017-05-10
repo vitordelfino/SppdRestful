@@ -7,7 +7,7 @@ import br.com.sppd.dbms.dao.HistoricoSaldoCartaoDAO;
 
 /**
  * 
- * Classe respons·vel por ser o controlador entre o resource e a camada DAO de HistoricoSaldoCartao 
+ * Classe respons√°vel por ser o controlador entre o resource e a camada DAO de HistoricoSaldoCartao 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 22 de mar de 2017
  *

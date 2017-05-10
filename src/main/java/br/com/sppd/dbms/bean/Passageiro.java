@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * Classe respos·vel por representar um passageiro
+ * Classe respos√°vel por representar um passageiro
  * 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 4 de dez de 2016

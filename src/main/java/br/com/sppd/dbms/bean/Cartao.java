@@ -6,7 +6,7 @@ package br.com.sppd.dbms.bean;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Classe respos·vel por representar um cartao
+ * Classe respos√°vel por representar um cartao
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 18 de fev de 2017
  */

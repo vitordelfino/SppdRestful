@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * Classe respos·vel por representar uma Estacao
+ * Classe respos√°vel por representar uma Estacao
  * 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 2 de dez de 2016

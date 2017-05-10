@@ -14,7 +14,7 @@ import br.com.sppd.retorno.Retorno;
 
 /**
  * 
- * Classe respons·vel por implementar login no sistema
+ * Classe respons√°vel por implementar login no sistema
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 4 de dez de 2016
  */
@@ -56,7 +56,7 @@ public class Login {
 				l.add(new LoginBean(p,true, "Sucess"));
 				return l;
 			}else{
-				l.add(new LoginBean(false, "usu·rio ou Senha n„o encontrado"));
+				l.add(new LoginBean(false, "usu√°rio ou Senha n√£o encontrado"));
 				return l;
 			}
 		}catch(SQLException e){
@@ -76,7 +76,7 @@ public class Login {
 	
 	/**
 	 * 
-	 * MÈtodo respons·vel por alterar a senha de acesso
+	 * M√©todo respons√°vel por alterar a senha de acesso
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 19 de fev de 2017
 	 * @param cpf
@@ -116,7 +116,7 @@ public class Login {
 	}
 	/**
 	 * 
-	 * MÈtodo respons·vel por alterar senha do usu·rio ao logar pela primeira vez
+	 * M√©todo respons√°vel por alterar senha do usu√°rio ao logar pela primeira vez
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 19 de fev de 2017
 	 * @param cpf
@@ -125,7 +125,7 @@ public class Login {
 	 * @return
 	 */
 	public Retorno alterarSenha(String cpf, String novaSenha){
-		System.out.println("Alterando senha do usu·rio: " + cpf);
+		System.out.println("Alterando senha do usu√°rio: " + cpf);
 		System.out.println("Nova Senha = " + novaSenha);
 		Connection c = null;
 		PreparedStatement pst = null;
@@ -156,7 +156,7 @@ public class Login {
 	
 	/**
 	 * 
-	 * MÈtodo respons·vel por validar se as senhas enviadas s„o iguais
+	 * M√©todo respons√°vel por validar se as senhas enviadas s√£o iguais
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 19 de fev de 2017
 	 * @param cpf
@@ -169,7 +169,7 @@ public class Login {
 		ResultSet rs = null;
 		String sql = "select l.password from login l where l.username = ? ";
 		try{
-			System.out.println("Buscando usu·rio: " + cpf);
+			System.out.println("Buscando usu√°rio: " + cpf);
 			c = new ConnectionFactory().getConnection();
 			pst = c.prepareStatement(sql);
 			pst.setString(1, cpf);

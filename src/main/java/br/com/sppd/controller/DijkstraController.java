@@ -24,7 +24,7 @@ import jdk.nashorn.internal.scripts.JS;
 
 /**
  * 
- * Classe respons�vel por ser o controller Resource e Dijkstra
+ * Classe responsável por ser o controller Resource e Dijkstra
  * 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 30 de mar de 2017

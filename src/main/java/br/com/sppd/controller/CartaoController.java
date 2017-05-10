@@ -10,7 +10,7 @@ import br.com.sppd.dbms.dao.CartaoDAO;
 import br.com.sppd.retorno.Retorno;
 
 /**
- * Classe respos·vel por ser o controlador entre o resource e a camada DAO de Cartao
+ * Classe respos√°vel por ser o controlador entre o resource e a camada DAO de Cartao
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 18 de fev de 2017
  */

@@ -8,7 +8,7 @@ import br.com.sppd.retorno.Retorno;
 
 /**
  * 
- * Classe respos�vel por  ser o controlador entre o resource e a camada DAO de Passageiros
+ * Classe resposável por  ser o controlador entre o resource e a camada DAO de Passageiros
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 4 de dez de 2016
  */
@@ -16,7 +16,7 @@ public class PassageiroController {
 	
 	/**
 	 * 
-	 * Método respos�vel por chamar a classe DAO de Passageiros
+	 * Método resposável por chamar a classe DAO de Passageiros
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 4 de dez de 2016
 	 * @param passageiro

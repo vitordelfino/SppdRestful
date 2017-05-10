@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * Classe respons·vel por representar um HistorioSaldoCartao 
+ * Classe respons√°vel por representar um HistorioSaldoCartao 
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 22 de mar de 2017
  *

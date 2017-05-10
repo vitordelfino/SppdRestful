@@ -14,7 +14,7 @@ import br.com.sppd.factory.ConnectionFactory;
 
 /**
  * 
- * Classe respons·vel por realizar mÈtodos de consulta ao BD relacionado a HistoricoSaldoCartao
+ * Classe respons√°vel por realizar m√©todos de consulta ao BD relacionado a HistoricoSaldoCartao
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 22 de mar de 2017
  *
@@ -23,7 +23,7 @@ public class HistoricoSaldoCartaoDAO {
 
 	/**
 	 * 
-	 * MÈtodo respons·vel por retornar o historico de saldo por id do cartao 
+	 * M√©todo respons√°vel por retornar o historico de saldo por id do cartao 
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 22 de mar de 2017
 	 * @param getHistoricoCartao

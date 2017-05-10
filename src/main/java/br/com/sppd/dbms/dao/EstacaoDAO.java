@@ -16,7 +16,7 @@ import br.com.sppd.dbms.bean.Estacao;
 import br.com.sppd.factory.ConnectionFactory;
 
 /**
- * Classe respons·vel por realizar mÈtodos de consulta ao BD relacionado a EstaÁ„o
+ * Classe respons√°vel por realizar m√©todos de consulta ao BD relacionado a Esta√ß√£o
  * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
  * @since 2 de dez de 2016
  */
@@ -24,7 +24,7 @@ public class EstacaoDAO {
 	
 	/**
 	 * 
-	 * MÈtodo respons·vel por acessar o Banco e retornar todas as Estacoes cadastradas
+	 * M√©todo respons√°vel por acessar o Banco e retornar todas as Estacoes cadastradas
 	 * @author Vitor Silva Delfino <vitor.delfino952@gmail.com>
 	 * @since 2 de dez de 2016
 	 * @return List<Estacao>
