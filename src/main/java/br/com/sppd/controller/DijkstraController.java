@@ -8,19 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.sun.xml.internal.ws.addressing.ProblemAction;
-
 import br.com.sppd.dbms.bean.Estacao;
-import br.com.sppd.dbms.dao.EstacaoDAO;
 import br.com.sppd.dijkstra.Dijkstra;
 import br.com.sppd.dijkstra.Grafo;
 import br.com.sppd.dijkstra.LerDoArquivo;
 import br.com.sppd.dijkstra.Vertice;
-import jdk.nashorn.internal.scripts.JS;
 
 /**
  * 
