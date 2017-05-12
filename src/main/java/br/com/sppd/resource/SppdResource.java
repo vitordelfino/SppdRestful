@@ -276,14 +276,7 @@ public class SppdResource {
 		}
 		if(!destino.equals("BRESSER - MOOCA")){
 			destino = destino.replaceAll("-", " ");
-		}
-		
-			
-			
-		
-			
-		
-		
+		}	
 		
 		System.out.println(origem + " " + destino);
 		

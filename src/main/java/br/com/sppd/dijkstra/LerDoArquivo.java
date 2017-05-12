@@ -13,19 +13,17 @@ public class LerDoArquivo {
 		Grafo g = new Grafo();
 		Vertice v;
 		File f = new File(nomeArquivo);
-		f.renameTo(new File(f.getAbsolutePath()));
-		System.out.println("caminho do arquivo " + f.getAbsolutePath());
 		String vertices[];
 		String linha;
 		ArrayList<String[]> s1 = new ArrayList<String[]>();
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+			BufferedReader br = new BufferedReader(new FileReader(f));
 
 			Map<String, Vertice> mapa = new HashMap<String, Vertice>();
 
 			while ((linha = br.readLine()) != null) {
-
+				System.out.println(linha);
 				if (linha.contains(",")) {
 					s1.add(linha.split("/"));
 					vertices = s1.get(0)[0].split(",");

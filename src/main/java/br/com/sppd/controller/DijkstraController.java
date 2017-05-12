@@ -3,6 +3,7 @@ package br.com.sppd.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,26 +25,26 @@ import br.com.sppd.dijkstra.Vertice;
  */
 public class DijkstraController {
 	public List<Estacao> encontrarMenorCaminhoDijkstra(String origem, String destino) {
-		
+
 		/*
 		 * Leitura dos arquivos com as conec�es das esta��es
 		 */
 		Grafo grafo = new Grafo();
-		//grafo.setVertices(LerDoArquivo.lerGrafo("C:\\Workspace\\Eclipse\\WebServiceRestSppd\\Grafo.txt"));
-		grafo.setVertices(LerDoArquivo.lerGrafo("Grafo.txt"));
+		URL path = LerDoArquivo.class.getResource("Grafo.txt");
+		grafo.setVertices(LerDoArquivo.lerGrafo(path.getFile()));
 		Vertice v1 = new Vertice();
 		Vertice v2 = new Vertice();
 		v1 = grafo.encontrarVertice(origem);
 		v2 = grafo.encontrarVertice(destino);
 		List<Vertice> lv = new Dijkstra().encontrarMenorCaminhoDijkstra(grafo, v1, v2);
-		
-		
-		
+
 		/*
 		 * Leitura do arquivo propertie com o codigo da linha
 		 */
 		Properties p = new Properties();
-		File f = new File("C:\\Workspace\\Eclipse\\WebServiceSPPD\\EstacaoPropertie.propertie");
+		//File f = new File("C:\\Workspace\\Eclipse\\WebServiceSPPD\\EstacaoPropertie.propertie");
+		URL path2 = LerDoArquivo.class.getResource("EstacaoPropertie.propertie");
+		File f = new File(path2.getFile());
 		try {
 			InputStream is = new FileInputStream(f);
 			p.load(is);
@@ -52,7 +53,8 @@ public class DijkstraController {
 		}
 
 		/*
-		 * Montagem do retorno inserindo em uma lista o nome da estacao e o cod buscado no arq propertie
+		 * Montagem do retorno inserindo em uma lista o nome da estacao e o cod
+		 * buscado no arq propertie
 		 */
 		List<Estacao> estacoes = new ArrayList<Estacao>();
 		lv.forEach(v -> {
@@ -62,7 +64,6 @@ public class DijkstraController {
 					Integer.parseInt(
 							p.getProperty(Normalizer.normalize(nomeEstacao.replaceAll(" ", ""), Normalizer.Form.NFD)
 									.replaceAll("[^\\p{ASCII}]", "")))));
-			;
 
 		});
 

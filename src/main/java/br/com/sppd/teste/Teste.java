@@ -1,6 +1,10 @@
 package br.com.sppd.teste;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import br.com.sppd.dbms.bean.Cartao;
@@ -11,6 +15,7 @@ import br.com.sppd.dbms.dao.EstacaoDAO;
 import br.com.sppd.dbms.dao.Login;
 import br.com.sppd.dbms.dao.PassageiroDAO;
 import br.com.sppd.dbms.dao.ViagemDAO;
+import br.com.sppd.dijkstra.LerDoArquivo;
 import br.com.sppd.dijkstra.PreencheArquivo;
 import br.com.sppd.dijkstra.testeCaminho;
 import br.com.sppd.factory.ConnectionFactory;
@@ -22,7 +27,7 @@ public class Teste {
 		// TODO Auto-generated method stub
 		
 		
-		testaConexao();
+		//testaConexao();
 		//testaGetEstacao();
 		//testeCadastraPassageiro();
 		
@@ -42,7 +47,18 @@ public class Teste {
 		
 		//testaCaminho();
 		
-		preencherGrafo();
+		//preencherGrafo();
+		URL path = LerDoArquivo.class.getResource("Grafo.txt");
+		System.out.println(path.getFile());
+		
+		File f = new File(path.getFile());
+		String linha;
+		BufferedReader br = new BufferedReader(new FileReader(f));
+		while ((linha = br.readLine()) != null) {
+			System.out.println(linha);
+		}
+		
+		
 	}
 
 
