@@ -23,7 +23,7 @@ public class LerDoArquivo {
 			Map<String, Vertice> mapa = new HashMap<String, Vertice>();
 
 			while ((linha = br.readLine()) != null) {
-				System.out.println(linha);
+				
 				if (linha.contains(",")) {
 					s1.add(linha.split("/"));
 					vertices = s1.get(0)[0].split(",");

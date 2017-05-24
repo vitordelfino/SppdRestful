@@ -79,7 +79,7 @@ public class SppdResource {
 	
 	
 	@POST
-	@Path("passageiro/cadastraPassageiro/")
+	@Path("/passageiro/cadastraPassageiro/")
 	@Consumes({ "application/json" })
 	@Produces("application/json")
 	public List<Retorno> cadastraPassageiro(String inputJson) throws JSONException {
@@ -107,13 +107,61 @@ public class SppdResource {
 				jo.getString("bairro"), 
 				jo.getString("municipio"),
 				nascimento, 
-				jo.getBoolean("deficiente")
+				jo.getBoolean("deficiente"),
+				null,
+				null
 				);
 
 		System.out.println(p.toString());
 		List<Retorno> list = new PassageiroController().cadastraPassageiro(p);
 		System.out.println(list.toString());
 		return list;
+	}
+	
+	@POST
+	@Path("/passageiro/vincularFacebook/")
+	@Consumes({ "application/json" })
+	@Produces("application/json")
+	public Retorno vincularFacebook(String inputJson) throws JSONException{
+		
+		JSONObject jo = new JSONObject(inputJson);
+		System.out.println("Body recebido: " + jo);
+		
+		String facebookId = jo.getString("facebookId");
+		String urlPicture = jo.getString("urlPicture");
+		int codPassageiro = jo.getInt("codPassageiro");
+		
+		Retorno retorno = new PassageiroController().vincularFacebook(facebookId, urlPicture, codPassageiro);
+		
+		System.out.println("Retorno = " + retorno.toString());
+		return retorno;
+	}
+	
+	@POST
+	@Path("/passageiro/cadastrarComFacebook/")
+	@Consumes({ "application/json" })
+	@Produces("application/json")
+	public LoginBean cadastrarComFacebook(String inputJson) throws JSONException{
+		
+		JSONObject jo = new JSONObject(inputJson);
+		System.out.println("Body recebido: " + jo);
+		
+		String facebookId = jo.getString("facebookId");
+		String urlPicture = jo.getString("urlPicture");
+		String nome = jo.getString("nome");
+		
+		
+		
+		return new PassageiroController().cadastrarComFacebook(facebookId, urlPicture, nome);
+	}
+	
+	
+	@GET
+	@Path("/passageiro/getPassageiroFacebookId/{facebookId}")
+	@Consumes({ "application/json" })
+	@Produces("application/json")
+	public Passageiro getPassageiroFacebookId(@PathParam("facebookId") String facebookId){
+		return new PassageiroController().getPassageiroFacebookId(facebookId);
 	}
 	
 	
@@ -241,14 +289,14 @@ public class SppdResource {
 	@Path("/dijkstra/encontrarMenorCaminho/")
 	@Produces("application/json")
 	public List<Estacao> encontrarMenorCaminhoDijkstra(String inputJson){
-		String origem = "";
-		String destino = "";
+		int origem = 0;
+		int destino = 0;
 		try{
 			JSONObject jo = new JSONObject(inputJson);
 			System.out.println(jo);		
 		
-			origem = jo.getString("origem");
-			destino = jo.getString("destino");
+			origem = Integer.parseInt(jo.getString("origem"));
+			destino = Integer.parseInt(jo.getString("destino"));
 		}catch(JSONException e){
 			e.printStackTrace();
 		}		
@@ -258,27 +306,8 @@ public class SppdResource {
 	@GET
 	@Path("/dijkstra/encontrarMenorCaminho/{origem}/{destino}")
 	@Produces("application/json")
-	public Response encontrarMenorCaminhoDijkstraTeste(@PathParam("origem") String origem, @PathParam("destino") String destino){
+	public Response encontrarMenorCaminhoDijkstraTeste(@PathParam("origem") int origem, @PathParam("destino") int destino){
 		
-		System.out.println("0 = " + origem + " |||| " + destino);
-		
-		if(origem.equals("BRESSER-MOOCA")) {
-			origem = origem.replaceAll("-", " - ");
-			System.out.println("1 origem = " + origem);
-		}
-		if(destino.equals("BRESSER-MOOCA")){
-			destino = destino.replaceAll("-", " - ");
-			System.out.println("2 destino = " + destino);
-		}
-		
-		if(!origem.equals("BRESSER - MOOCA")) {
-			origem = origem.replaceAll("-", " ");
-		}
-		if(!destino.equals("BRESSER - MOOCA")){
-			destino = destino.replaceAll("-", " ");
-		}	
-		
-		System.out.println(origem + " " + destino);
 		
 		return new RetornoResponse().ok(new DijkstraController().encontrarMenorCaminhoDijkstra(origem, destino));
 	}

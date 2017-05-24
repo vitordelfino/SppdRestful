@@ -1,8 +1,12 @@
 package br.com.sppd.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -10,6 +14,7 @@ import java.util.List;
 import java.util.Properties;
 
 import br.com.sppd.dbms.bean.Estacao;
+import br.com.sppd.dbms.dao.EstacaoDAO;
 import br.com.sppd.dijkstra.Dijkstra;
 import br.com.sppd.dijkstra.Grafo;
 import br.com.sppd.dijkstra.LerDoArquivo;
@@ -24,18 +29,18 @@ import br.com.sppd.dijkstra.Vertice;
  *
  */
 public class DijkstraController {
-	public List<Estacao> encontrarMenorCaminhoDijkstra(String origem, String destino) {
+	public List<Estacao> encontrarMenorCaminhoDijkstra(int origem, int destino) {
 
 		/*
-		 * Leitura dos arquivos com as conec�es das esta��es
+		 * Leitura dos arquivos com as conexões das estações
 		 */
 		Grafo grafo = new Grafo();
 		URL path = LerDoArquivo.class.getResource("Grafo.txt");
 		grafo.setVertices(LerDoArquivo.lerGrafo(path.getFile()));
 		Vertice v1 = new Vertice();
 		Vertice v2 = new Vertice();
-		v1 = grafo.encontrarVertice(origem);
-		v2 = grafo.encontrarVertice(destino);
+		v1 = grafo.encontrarVertice(String.valueOf(origem));
+		v2 = grafo.encontrarVertice(String.valueOf(destino));
 		List<Vertice> lv = new Dijkstra().encontrarMenorCaminhoDijkstra(grafo, v1, v2);
 
 		/*
@@ -47,6 +52,13 @@ public class DijkstraController {
 		File f = new File(path2.getFile());
 		try {
 			InputStream is = new FileInputStream(f);
+			BufferedReader b = new BufferedReader(new FileReader(f));
+			String linha = "";
+			while ((linha = b.readLine()) != null) {
+				System.out.println("linha: " + linha);
+			}
+			
+			
 			p.load(is);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,16 +68,8 @@ public class DijkstraController {
 		 * Montagem do retorno inserindo em uma lista o nome da estacao e o cod
 		 * buscado no arq propertie
 		 */
-		List<Estacao> estacoes = new ArrayList<Estacao>();
-		lv.forEach(v -> {
-			String nomeEstacao = v.getDescricao();
-
-			estacoes.add(new Estacao(nomeEstacao,
-					Integer.parseInt(
-							p.getProperty(Normalizer.normalize(nomeEstacao.replaceAll(" ", ""), Normalizer.Form.NFD)
-									.replaceAll("[^\\p{ASCII}]", "")))));
-
-		});
+		List<Estacao> estacoes = EstacaoDAO.getInstance().getEstacao(lv);
+		
 
 		return estacoes;
 	}

@@ -15,13 +15,13 @@ import br.com.sppd.retorno.Retorno;
 public class LoginController {
 	
 	public List<LoginBean> logar(String usuario, String senha){
-		return new Login().logar(usuario, senha); 
+		return Login.getInstance().logar(usuario, senha); 
 	}
 	public Retorno alterarSenha(String cpf, String novaSenha){
-		return new Login().alterarSenha(cpf, novaSenha);
+		return Login.getInstance().alterarSenha(cpf, novaSenha);
 	}
 	
 	public Retorno alterarSenha(String cpf, String senhaAtual, String novaSenha){
-		return new Login().alterarSenha(cpf, senhaAtual, novaSenha);
+		return Login.getInstance().alterarSenha(cpf, senhaAtual, novaSenha);
 	}
 }

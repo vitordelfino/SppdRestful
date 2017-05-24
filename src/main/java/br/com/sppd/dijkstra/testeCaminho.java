@@ -9,7 +9,7 @@ public class testeCaminho {
 	public String testar(String arquivo, String a, String b){
 		
 		try {
-			new PreencheArquivo().preencher();
+			new PreencheEstacaoPropertie().preencher();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

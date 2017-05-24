@@ -15,10 +15,10 @@ import br.com.sppd.dbms.dao.ViagemDAO;
 public class ViagemController {
 	
 	public List<Viagem> getHistoricoViagens(int codPassageiro){
-		return new ViagemDAO().getHistoricoViagens(codPassageiro);
+		return ViagemDAO.getInstance().getHistoricoViagens(codPassageiro);
 	}
 	
 	public List<Viagem> getHistoricoViagensSite(int codCartao){
-		return new ViagemDAO().getHistoricoViagensSite(codCartao);
+		return ViagemDAO.getInstance().getHistoricoViagensSite(codCartao);
 	}
 }

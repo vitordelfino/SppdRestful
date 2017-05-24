@@ -15,7 +15,7 @@ import br.com.sppd.dbms.dao.HistoricoSaldoCartaoDAO;
 public class HistoricoSaldoCartaoController {
 	
 	public List<HistoricoSaldoCartaoBean> getHistoricoCartao(int codCartao){
-		return new HistoricoSaldoCartaoDAO().getHistoricoCartao(codCartao);
+		return HistoricoSaldoCartaoDAO.getInstance().getHistoricoCartao(codCartao);
 	}
 
 }

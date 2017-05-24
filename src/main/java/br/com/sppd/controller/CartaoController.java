@@ -17,18 +17,18 @@ import br.com.sppd.retorno.Retorno;
 public class CartaoController {
 	
 	public List<Cartao> getCartoes(int codPassageiro){		
-		return new CartaoDAO().getCartoes(codPassageiro);		
+		return CartaoDAO.getInstance().getCartoes(codPassageiro);	
 	}
 	
 	public Retorno efetuarRecarga(Cartao cartao, double valor){
-		return new CartaoDAO().efetuarRecarga(cartao, valor);
+		return CartaoDAO.getInstance().efetuarRecarga(cartao, valor);
 	}
 	
 	public Retorno ativarCartao(Cartao cartao){
-		return new CartaoDAO().ativarCartao(cartao);
+		return CartaoDAO.getInstance().ativarCartao(cartao);
 	}
 	
 	public Retorno desativarCartao(Cartao cartao){
-		return new CartaoDAO().desativarCartao(cartao);
+		return CartaoDAO.getInstance().desativarCartao(cartao);
 	}
 }

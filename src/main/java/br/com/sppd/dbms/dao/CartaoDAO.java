@@ -21,6 +21,18 @@ import br.com.sppd.retorno.Retorno;
  * @since 18 de fev de 2017
  */
 public class CartaoDAO {
+	
+	private static CartaoDAO instancia = null;
+	
+	private CartaoDAO(){
+		
+	}
+	
+	public static CartaoDAO getInstance(){
+		if(instancia == null)
+			return new CartaoDAO();
+		return instancia;
+	}
 
 	/**
 	 * 
@@ -47,7 +59,7 @@ public class CartaoDAO {
 			PreparedStatement pst = null;
 			String query1 = "update cartao c " + "set c.ativo = 1" + " where c.codCartao = ? and c.codPassageiro = ? ";
 			try {
-				c = new ConnectionFactory().getConnection();
+				c = ConnectionFactory.getInstance().getConnection();
 				pst = c.prepareStatement(query1);
 				pst.setInt(1, cartao.getCodCartao());
 				pst.setInt(2, cartao.getCodPassageiro());
@@ -94,7 +106,7 @@ public class CartaoDAO {
 			PreparedStatement pst = null;
 			String query1 = "update cartao c " + "set c.ativo = 0" + " where c.codCartao = ? and c.codPassageiro = ? ";
 			try {
-				c = new ConnectionFactory().getConnection();
+				c = ConnectionFactory.getInstance().getConnection();
 				pst = c.prepareStatement(query1);
 				pst.setInt(1, cartao.getCodCartao());
 				pst.setInt(2, cartao.getCodPassageiro());
@@ -140,7 +152,7 @@ public class CartaoDAO {
 			String query = "update cartao c " + "set c.saldo =  c.saldo + ? " + "where c.codCartao = ? and c.codPassageiro = ?";
 		
 			try {
-				c = new ConnectionFactory().getConnection();
+				c = ConnectionFactory.getInstance().getConnection();
 				pst = c.prepareStatement(query);
 				pst.setDouble(1, valor);
 				pst.setInt(2, cartao.getCodCartao());
@@ -171,7 +183,7 @@ public class CartaoDAO {
 		String sql = "select * from cartao c where c.codPassageiro = ?";
 		List<Cartao> retorno = new ArrayList<Cartao>();
 		try {
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(sql);
 			pst.setInt(1, codPassageiro);
 			rs = pst.executeQuery();
@@ -206,7 +218,7 @@ public class CartaoDAO {
 		String query1 = "select c.ativo from cartao c where c.codCartao = ?";
 
 		try {
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(query1);
 			pst.setInt(1, codCartao);
 			rs = pst.executeQuery();

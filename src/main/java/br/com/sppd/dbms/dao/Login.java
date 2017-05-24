@@ -20,6 +20,18 @@ import br.com.sppd.retorno.Retorno;
  */
 public class Login {
 	
+private static Login instancia = null;
+	
+	private Login(){
+		
+	}
+	
+	public static Login getInstance(){
+		if(instancia == null)
+			return new Login();
+		return instancia;
+	}
+	
 	public List<LoginBean> logar(String usuario, String senha){
 		Connection c = null;
 		PreparedStatement pst = null;
@@ -28,7 +40,7 @@ public class Login {
 		String sql2 = "select * from passageiro p where p.cpf = ?";
 		List<LoginBean> l = new ArrayList<>();
 		try{
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(sql);
 			pst.setString(1, usuario);
 			pst.setString(2, senha);
@@ -42,7 +54,6 @@ public class Login {
 				rs.next();
 				Passageiro p = new Passageiro(
 						rs.getInt(1),
-						rs.getString(2),
 						rs.getString(3),
 						rs.getString(4),
 						rs.getString(5),
@@ -52,7 +63,10 @@ public class Login {
 						rs.getString(9),
 						rs.getString(10),
 						rs.getString(11),
-						rs.getBoolean(12));
+						rs.getString(12),
+						rs.getBoolean(13),
+						rs.getString(2),
+						rs.getString(14));
 				l.add(new LoginBean(p,true, "Sucess"));
 				return l;
 			}else{
@@ -95,7 +109,7 @@ public class Login {
 				"set l.password = ? " +
 				"where l.username = ? ";		
 		try{
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(sql);
 			pst.setString(1, novaSenha);
 			pst.setString(2, cpf);
@@ -134,7 +148,7 @@ public class Login {
 				"where l.username = ? ";
 		
 		try{
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(sql);			
 			pst.setString(1, novaSenha);
 			pst.setString(2, cpf);
@@ -163,14 +177,14 @@ public class Login {
 	 * @param senha
 	 * @return
 	 */
-	private boolean validarSenha(String cpf, String senha){
+	public boolean validarSenha(String cpf, String senha){
 		Connection c = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		String sql = "select l.password from login l where l.username = ? ";
 		try{
 			System.out.println("Buscando usuário: " + cpf);
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(sql);
 			pst.setString(1, cpf);
 			rs = pst.executeQuery();

@@ -20,6 +20,18 @@ import br.com.sppd.factory.ConnectionFactory;
  *
  */
 public class HistoricoSaldoCartaoDAO {
+	
+	private static HistoricoSaldoCartaoDAO instancia = null;
+	
+	private HistoricoSaldoCartaoDAO(){
+		
+	}
+	
+	public static HistoricoSaldoCartaoDAO getInstance(){
+		if(instancia == null)
+			return new HistoricoSaldoCartaoDAO();
+		return instancia;
+	}
 
 	/**
 	 * 
@@ -39,7 +51,7 @@ public class HistoricoSaldoCartaoDAO {
 		List<HistoricoSaldoCartaoBean> retorno = new ArrayList<HistoricoSaldoCartaoBean>();
 		 DateFormat format = new SimpleDateFormat("dd/MM/yy hh:MM");
 		try{
-			c = new ConnectionFactory().getConnection();
+			c = ConnectionFactory.getInstance().getConnection();
 			pst = c.prepareStatement(query);
 			pst.setInt(1, codCartao);
 			

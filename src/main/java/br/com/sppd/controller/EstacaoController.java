@@ -14,6 +14,6 @@ import br.com.sppd.dbms.dao.EstacaoDAO;
 public class EstacaoController {
 	
 	public List<Estacao> getListaEstacao(){
-		return new EstacaoDAO().getListaEstacao();
+		return EstacaoDAO.getInstance().getListaEstacao();
 	}
 }

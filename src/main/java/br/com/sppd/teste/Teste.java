@@ -16,7 +16,8 @@ import br.com.sppd.dbms.dao.Login;
 import br.com.sppd.dbms.dao.PassageiroDAO;
 import br.com.sppd.dbms.dao.ViagemDAO;
 import br.com.sppd.dijkstra.LerDoArquivo;
-import br.com.sppd.dijkstra.PreencheArquivo;
+import br.com.sppd.dijkstra.PreencheEstacaoPropertie;
+import br.com.sppd.dijkstra.PreencheEstacaoPropertie2;
 import br.com.sppd.dijkstra.testeCaminho;
 import br.com.sppd.factory.ConnectionFactory;
 import br.com.sppd.retorno.Retorno;
@@ -47,16 +48,8 @@ public class Teste {
 		
 		//testaCaminho();
 		
-		//preencherGrafo();
-		URL path = LerDoArquivo.class.getResource("Grafo.txt");
-		System.out.println(path.getFile());
+		preencherGrafo();
 		
-		File f = new File(path.getFile());
-		String linha;
-		BufferedReader br = new BufferedReader(new FileReader(f));
-		while ((linha = br.readLine()) != null) {
-			System.out.println(linha);
-		}
 		
 		
 	}
@@ -66,30 +59,18 @@ static void testaConexao(){
 	/**
 	*************** teste de conexao com banco ***************
 	**/
-	System.out.println("******** teste conexao com banco ******** ");
-	ConnectionFactory c = new ConnectionFactory();
-	c.getConnection();
+//	System.out.println("******** teste conexao com banco ******** ");
+//	ConnectionFactory c = new ConnectionFactory();
+//	c.getConnection();
 }
 
-static void testaGetEstacao(){
+/*static void testaGetEstacao(){
 	EstacaoDAO e = new EstacaoDAO();
 	List<Estacao> listEstacao = e.getListaEstacao();
 	System.out.println(listEstacao.toString());
 	
-}
+}*/
 
-static void testeCadastraPassageiro(){
-	Passageiro p = new Passageiro(1, "VITOR", "42780908890", "483718075"
-			,"RUA JATOBÁ", "8","CASA 2", "06332340", "VILA VELOSO", "CARAPICUIBA", "1995-10-04", false);
-	
-	PassageiroDAO pDAO = new PassageiroDAO();
-	System.out.println(pDAO.cadastraPassageiro(p));
-}
-
-static void logar(){
-	Login l = new Login();
-	System.out.println(l.logar("42780908890", "42780908890.").toString());
-}
 
 /*static void setNovaViagem(){
 	Viagem viagem = new Viagem();
@@ -107,7 +88,7 @@ static void testaCaminho(){
 }
 
 static void preencherGrafo() throws IOException{
-	new PreencheArquivo().preencher();
+	new PreencheEstacaoPropertie2().preencher();
 }
 
 }

@@ -13,18 +13,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Passageiro {
 
-	private int codPassageiro;
-	private String nome;
-	private String cpf;
-	private String rg;
-	private String logradouro;
-	private String numero;
-	private String complemento;
-	private String cep;
-	private String bairro;
-	private String municipio;
-	private String nascimento;
-	private boolean deficiente;
+	private int codPassageiro = 0;
+	private String nome = "";
+	private String cpf = "";
+	private String rg = "";
+	private String logradouro = "";
+	private String numero = "";
+	private String complemento = "";
+	private String cep = "";
+	private String bairro = "";
+	private String municipio = "";
+	private String nascimento = "";
+	private boolean deficiente = false;
+	private String facebookId = "";
+	private String urlPicture = "";
 
 	public Passageiro() {
 
@@ -35,7 +37,7 @@ public class Passageiro {
 	}
 
 	public Passageiro(int codPassageiro, String nome, String cpf, String rg, String logradouro, String numero,
-			String complemento, String cep, String bairro, String municipio, String nascimento, boolean deficiente) {
+			String complemento, String cep, String bairro, String municipio, String nascimento, boolean deficiente, String facebookId, String urlPicture) {
 		super();
 		this.codPassageiro = codPassageiro;
 		this.nome = nome;
@@ -49,6 +51,8 @@ public class Passageiro {
 		this.municipio = municipio;
 		this.nascimento = nascimento;
 		this.deficiente = deficiente;
+		this.facebookId = facebookId;
+		this.urlPicture = urlPicture;
 	}
 
 	public Passageiro(int codPassageiro, String nome, String cpf, String rg, String logradouro, String numero,
@@ -162,6 +166,22 @@ public class Passageiro {
 
 	public void setDeficiente(boolean deficiente) {
 		this.deficiente = deficiente;
+	}	
+
+	public String getFacebookId() {
+		return facebookId;
+	}
+
+	public void setFacebookId(String facebookId) {
+		this.facebookId = facebookId;
+	}
+
+	public String getUrlPicture() {
+		return urlPicture;
+	}
+
+	public void setUrlPicture(String urlPicture) {
+		this.urlPicture = urlPicture;
 	}
 
 	@Override
@@ -171,5 +191,7 @@ public class Passageiro {
 				+ ", bairro=" + bairro + ", municipio=" + municipio + ", nascimento=" + nascimento + ", deficiente="
 				+ deficiente + "]";
 	}
+	
+	
 
 }
